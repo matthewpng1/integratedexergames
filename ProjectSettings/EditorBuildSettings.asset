@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 0
+    path: Assets/Scenes/Practice.unity
+    guid: 6ac092466b8a4487db150515d995ae24
+  - enabled: 1
+    path: Assets/Scenes/MenuStart.unity
+    guid: 3e908a6a0f4f9914ea60be3cfce69cb1
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: ab6b02c2f842e46cba41f68662ff2ef9
+  - enabled: 1
+    path: Assets/Scenes/Tracker.unity
+    guid: 49eabe8034bf2419d849b98173c41967
+  - enabled: 1
+    path: Assets/Scenes/Stage 1 - Singapore.unity
+    guid: 79a317ff9f2ade345a85f4f00910ef16
+  - enabled: 1
+    path: Assets/Scenes/Stage 1 - China.unity
+    guid: 1bfd388558e4b4b188d59b2c44248fb2
+  - enabled: 1
+    path: Assets/Scenes/Stage 1 - Thailand.unity
+    guid: 487a67c62e369412e862693e6569b412
+  - enabled: 1
+    path: Assets/Scenes/Stage 2 - South Korea.unity
+    guid: 567881691c6af4affa1b3317f7390717
+  - enabled: 1
+    path: Assets/Scenes/Stage 2 - Japan.unity
+    guid: 5c3bebc9dbc3e4b529b4741edcd11eb3
+  - enabled: 1
+    path: Assets/Scenes/Stage 2 - Australia.unity
+    guid: 0b0c856e81b3940fbbf56344143ea276
+  - enabled: 1
+    path: Assets/Scenes/Stage 3- France.unity
+    guid: 8f1a1b0a0a11f44009109616e933d667
+  - enabled: 1
+    path: Assets/Scenes/Stage 3- Italy.unity
+    guid: 3dfcd4adfa28249ee97e7367658d81c1
+  - enabled: 1
+    path: Assets/Scenes/Stage 3- UK.unity
+    guid: eb0f82cf098f149e18a9c24d12daec04
+  - enabled: 1
+    path: Assets/Scenes/Stage 4 - USA.unity
+    guid: 84c166aa522284e24a3b64b29eda66e0
+  - enabled: 1
+    path: Assets/Scenes/Stage 4 - Brazil.unity
+    guid: 67ae9a892f5374e7a81b3af106d426b8
+  - enabled: 1
+    path: Assets/Scenes/Stage 4 - Canada.unity
+    guid: 0239d6bbe154d4db5881de43c9281ef0
+  - enabled: 1
+    path: Assets/Scenes/Stage1Countries.unity
+    guid: 80830b1840de247ee8ce3809bb061237
+  - enabled: 1
+    path: Assets/Scenes/Stage2Countries.unity
+    guid: 41513dea3b4414c3db659f97ebf5d20c
+  - enabled: 1
+    path: Assets/Scenes/Stage3Countries.unity
+    guid: bd0613289dc554a4d8c958885a90beb2
+  - enabled: 1
+    path: Assets/Scenes/Stage4Countries.unity
+    guid: 8a3472c761c8a48679b626f3ee0ed0f9
+  - enabled: 1
+    path: Assets/Scenes/Swiss(extra).unity
+    guid: 9ff054fbda99f4e1e9b74a99f5639ff7
+  - enabled: 1
+    path: Assets/Scenes/Manual(JJ3).unity
+    guid: 5308bcfff269e466595e5c87edce3cdf
+  - enabled: 1
+    path: Assets/Scenes/Manual.unity
+    guid: 7805a62a46fb84d1097f80185ebde4ac
+  - enabled: 1
+    path: Assets/Scenes/Manual(GYG).unity
+    guid: 64e7492b4316da44fa701b0ba499b851
+  - enabled: 1
+    path: Assets/Scenes/quicktime 1.unity
+    guid: 86bb196b5698e3444928bbc247ddbbb3
+  - enabled: 1
+    path: Assets/Scenes/quicktime 2.unity
+    guid: f7484d3a9c31c4f49aef79de45fb4fea
+  - enabled: 1
+    path: Assets/Scenes/quicktime 3.unity
+    guid: f4bf17bc8959b39409bd905da73f783b
+  - enabled: 1
+    path: Assets/Scenes/quicktime 4.unity
+    guid: 8f1e56c256ea4ab409011b3e37763ca9
+  - enabled: 1
+    path: Assets/Scenes/prequicktime 2.unity
+    guid: 6ca998424b42b4849a24363ee7062971
+  - enabled: 1
+    path: Assets/Scenes/prequicktime 3.unity
+    guid: ad9200cab4bc90b478b5db9ddcd55a93
+  - enabled: 1
+    path: Assets/Scenes/prequicktime 4.unity
+    guid: dec66f86ee4c8b94a984812ef8126c7d
+  - enabled: 1
+    path: Assets/Scenes/HighScoreScene.unity
+    guid: d6e8475d127d8f9489d10783b97b6fc7
+  - enabled: 1
+    path: Assets/Scenes/MenuPlayer.unity
+    guid: 1ee0d6b4a81ca994f99e90fa4270a892
+  - enabled: 1
+    path: Assets/Scenes/Manual(Scoring).unity
+    guid: 3b2bfe27ed8bf6743a30d05c2c7468cb
+  - enabled: 1
+    path: Assets/Scenes/Multiplayer.unity
+    guid: b372ed3fb69654e44848563ea2218dfb
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  m_UseUCBPForAssetBundles: 0

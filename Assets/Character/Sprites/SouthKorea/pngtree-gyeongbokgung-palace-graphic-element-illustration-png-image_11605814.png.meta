@@ -1,0 +1,442 @@
+fileFormatVersion: 2
+guid: f6a8b1ec724a54c55ac5875c8d6661c7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4019613749109494628
+    second: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_0
+  - first:
+      213: 6928196408494006957
+    second: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_1
+  - first:
+      213: -9183497499857723850
+    second: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_2
+  - first:
+      213: -3568051782260678506
+    second: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_3
+  - first:
+      213: -5672432217528030989
+    second: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_4
+  - first:
+      213: -8605494302770583676
+    second: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_5
+  - first:
+      213: -4905320801031284146
+    second: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_6
+  - first:
+      213: 6810965101148769552
+    second: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_7
+  - first:
+      213: -7092516736993491313
+    second: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_8
+  - first:
+      213: -4425183388989851861
+    second: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_9
+  - first:
+      213: -7695330709162064678
+    second: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_10
+  - first:
+      213: 2330650526924892405
+    second: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 285
+        width: 121
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9c6d0e87967738c0800000000000000
+      internalID: -4019613749109494628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_1
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 282
+        width: 44
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da22c662de5e52060800000000000000
+      internalID: 6928196408494006957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_2
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 291
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63eda4d1ea9ad8080800000000000000
+      internalID: -9183497499857723850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_3
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 287
+        width: 50
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6902722fecbbb7ec0800000000000000
+      internalID: -3568051782260678506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_4
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 291
+        width: 51
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f8a2c5b3f87741b0800000000000000
+      internalID: -5672432217528030989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_5
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 284
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48726b68684239880800000000000000
+      internalID: -8605494302770583676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_6
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 290
+        width: 26
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4a123198bcccebb0800000000000000
+      internalID: -4905320801031284146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_7
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 294
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01d0e876ca8658e50800000000000000
+      internalID: 6810965101148769552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_8
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 283
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f868dfffa91529d90800000000000000
+      internalID: -7092516736993491313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_9
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 276
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b27fc4147279692c0800000000000000
+      internalID: -4425183388989851861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_10
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 277
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad48d3bdd71b43590800000000000000
+      internalID: -7695330709162064678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_11
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 86
+        width: 327
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f86fe05e42285020800000000000000
+      internalID: 2330650526924892405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_0: -4019613749109494628
+      pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_1: 6928196408494006957
+      pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_10: -7695330709162064678
+      pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_11: 2330650526924892405
+      pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_2: -9183497499857723850
+      pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_3: -3568051782260678506
+      pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_4: -5672432217528030989
+      pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_5: -8605494302770583676
+      pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_6: -4905320801031284146
+      pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_7: 6810965101148769552
+      pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_8: -7092516736993491313
+      pngtree-gyeongbokgung-palace-graphic-element-illustration-png-image_11605814_9: -4425183388989851861
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
