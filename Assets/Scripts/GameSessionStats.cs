@@ -17,9 +17,10 @@ public class GameSessionStats : MonoBehaviour
         public int deaths = 0;
         public int collectibles = 0;
         public bool finished = false;
+        public int bonus = 0; // Bonus from multiplayer profile
 
-        // compute score: jumps + collectibles + bonus if finished
-        public int Score => jumps + collectibles + (finished ? 10 : 0);
+        // compute score: jumps + collectibles - deaths + bonus if finished + profile bonus
+        public int Score => jumps + 5*collectibles - deaths + (finished ? 10 : 0) + bonus;
     }
 
     private PlayerStats player1Stats = new PlayerStats();
@@ -45,6 +46,9 @@ public class GameSessionStats : MonoBehaviour
     {
         player1Stats.controller = p1;
         player2Stats.controller = p2;
+        // Set bonuses from multiplayer profile
+        player1Stats.bonus = MultiplayerScoring.GetPlayer1ScoreBonus();
+        player2Stats.bonus = MultiplayerScoring.GetPlayer2ScoreBonus();
         ResetStats();
     }
 
@@ -52,9 +56,11 @@ public class GameSessionStats : MonoBehaviour
     {
         player1Stats.jumps = player1Stats.deaths = player1Stats.collectibles = 0;
         player1Stats.finished = false;
+        // Note: bonus is not reset here as it's set from profile
 
         player2Stats.jumps = player2Stats.deaths = player2Stats.collectibles = 0;
         player2Stats.finished = false;
+        // Note: bonus is not reset here as it's set from profile
 
         player1Finished = player2Finished = false;
     }

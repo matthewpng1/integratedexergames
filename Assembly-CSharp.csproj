@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{433CD4D0-681F-9008-D039-A22DEFCADC46}</ProjectGuid>
+    <ProjectGuid>{0ED1C707-B382-9E7B-88C9-3231A581647D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -89,6 +89,7 @@
     <Compile Include="Assets\Scripts\Mechanics\EnemyController.cs" />
     <Compile Include="Assets\Scripts\Gameplay\PlayerDeath.cs" />
     <Compile Include="Assets\Scripts\VictoryResultsDisplay.cs" />
+    <Compile Include="Assets\Scripts\UI\MultiplayerHomeController.cs" />
     <Compile Include="Assets\Scripts\MenuEvents.cs" />
     <Compile Include="Assets\Scripts\Gameplay\PlayerTokenCollision.cs" />
     <Compile Include="Assets\Scripts\Mechanics\Restart.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Assets\Scripts\ButtonToStage3.cs" />
     <Compile Include="Assets\Scripts\JumpWarning.cs" />
     <Compile Include="Assets\Scripts\Scene Loading.cs" />
+    <Compile Include="Assets\Scripts\MultiplayerScoring.cs" />
     <Compile Include="Assets\Scripts\Gameplay\PlayerEnemyCollision.cs" />
     <Compile Include="Assets\Scripts\Mechanics\Health.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
@@ -125,6 +127,7 @@
     <Compile Include="Assets\Scripts\ForwardButton.cs" />
     <Compile Include="Assets\Scripts\PreviousScene.cs" />
     <Compile Include="Assets\Scripts\UI\MetaGameController.cs" />
+    <Compile Include="Assets\Scripts\SinglePlayerScoring.cs" />
     <Compile Include="Assets\Scripts\Gameplay\EnablePlayerInput.cs" />
     <Compile Include="Assets\Scripts\UI\StartMenuController.cs" />
     <Compile Include="Assets\Scripts\CollectibleManagerStage2.cs" />
@@ -136,6 +139,7 @@
     <Compile Include="Assets\Scripts\Managers\UserManager.cs" />
     <Compile Include="Assets\Scripts\GameSessionStats.cs" />
     <Compile Include="Assets\Mod Assets\Mod Resources\Scripts\Platformer\SimpleTrigger.cs" />
+    <Compile Include="Assets\Scripts\UI\MultiplayerProfileSetupController.cs" />
     <Compile Include="Assets\Mod Assets\Mod Resources\Scripts\Backend\TemplateEditorDetection.cs" />
     <Compile Include="Assets\Collectible.cs" />
     <Compile Include="Assets\Scripts\Mechanics\GameController.cs" />
@@ -1493,11 +1497,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.2DPlatformer.Tutorials.csproj">
-      <Project>{C6A8CC7A-1293-20B9-A62D-58016B4EC615}</Project>
+      <Project>{05CF9652-F148-F7A8-5C27-D74885CFB703}</Project>
       <Name>Unity.2DPlatformer.Tutorials</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Platformer.Tutorials.csproj">
-      <Project>{863EF281-A363-7338-3EFC-E974A653577E}</Project>
+      <Project>{770FE437-AF72-ECC1-96FF-2F9A07834331}</Project>
       <Name>Unity.Platformer.Tutorials</Name>
     </ProjectReference>
   </ItemGroup>

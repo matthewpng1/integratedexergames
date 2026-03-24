@@ -33,6 +33,7 @@ namespace Platformer.Mechanics
 
        private bool jump;
        private bool canDoubleJump = true;
+       public bool hasDoubleJumpAvailable = false; // Tracks if double jump is still available in current flight
        private Vector2 move;
        private SpriteRenderer spriteRenderer;
        internal Animator animator;
@@ -142,6 +143,7 @@ namespace Platformer.Mechanics
            switch (jumpState)
            {
                case JumpState.PrepareToJump:
+                   Debug.Log("📍 State: PrepareToJump → Jumping");
                    jumpState = JumpState.Jumping;
                    jump = true;
                    stopJump = false;
@@ -149,22 +151,25 @@ namespace Platformer.Mechanics
                case JumpState.Jumping:
                    if (!IsGrounded)
                    {
+                       Debug.Log("📍 State: Jumping → InFlight");
                        Simulation.Schedule<PlayerJumped>().player = this;
                        jumpState = JumpState.InFlight;
-                       canDoubleJump = true;
+                       // Double jump will be available until it's used
                    }
                    break;
                case JumpState.InFlight:
                    if (IsGrounded)
                    {
+                       Debug.Log($"📍 State: InFlight → Landed → Grounded | Double jump available for next flight");
                        Simulation.Schedule<PlayerLanded>().player = this;
                        jumpState = JumpState.Landed;
                        lastSafePosition = transform.position;
                        isRespawning = false;
-                       canDoubleJump = false;
+                       hasDoubleJumpAvailable = true; // Enable double jump when landing for next flight
                    }
                    break;
                case JumpState.Landed:
+                   Debug.Log("📍 State: Landed → Grounded");
                    jumpState = JumpState.Grounded;
                    break;
            }
@@ -173,12 +178,14 @@ namespace Platformer.Mechanics
 
        protected override void ComputeVelocity()
        {
-           if (jump && (IsGrounded || canDoubleJump))
+           if (jump && (IsGrounded || hasDoubleJumpAvailable))
            {
+               Debug.Log($"🚀 JUMP EXECUTED! IsGrounded={IsGrounded}, hasDoubleJumpAvailable={hasDoubleJumpAvailable}");
                velocity.y = jumpTakeOffSpeed * model.jumpModifier;
                if (!IsGrounded)
                {
-                   canDoubleJump = false;
+                   Debug.Log("⬆️ Double jump used! hasDoubleJumpAvailable set to FALSE");
+                   hasDoubleJumpAvailable = false;
                }
                jump = false;
                // Track the jump in session stats
@@ -187,7 +194,10 @@ namespace Platformer.Mechanics
                    GameSessionStats.Instance.AddJump(this);
                }
                // Track the rep when a jump is successfully initiated
-               ProgressTracker.Instance.AddRep();
+               if (ProgressTracker.Instance != null && ProgressTracker.Instance.gameObject.activeSelf)
+               {
+                   ProgressTracker.Instance.AddRep();
+               }
            }
            else if (stopJump)
            {
@@ -215,9 +225,15 @@ namespace Platformer.Mechanics
 
        public void TriggerJump()
        {
-           if (jumpState == JumpState.Grounded || canDoubleJump)
+           Debug.Log($"🔴 TriggerJump called | jumpState={jumpState} | hasDoubleJumpAvailable={hasDoubleJumpAvailable} | IsGrounded={IsGrounded}");
+           if (jumpState == JumpState.Grounded || hasDoubleJumpAvailable)
            {
                jumpState = JumpState.PrepareToJump;
+               Debug.Log($"✅ Jump triggered! New jumpState: {jumpState}");
+           }
+           else
+           {
+               Debug.Log($"❌ Jump NOT allowed! jumpState={jumpState}, hasDoubleJumpAvailable={hasDoubleJumpAvailable}");
            }
        }
 

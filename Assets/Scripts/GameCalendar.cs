@@ -103,26 +103,8 @@ public class GameCalendar : MonoBehaviour
                         grips = PlayerPrefs.GetInt(dateKey + "_grips", 0);
                 }
 
-                // Compute total score with multiplier
-                int total = reps + grips;
-                if (UserManager.Instance != null && UserManager.Instance.HasUser())
-                {
-                    string user = UserManager.Instance.CurrentUser;
-                    int age = PlayerPrefs.GetInt($"GYG_Profile:{user}:age", 0);
-                    float weightF = PlayerPrefs.GetFloat($"GYG_Profile:{user}:weight", 0f);
-                    int weight = Mathf.RoundToInt(weightF);
-                    string gender = PlayerPrefs.GetString($"GYG_Profile:{user}:gender", "");
-                    
-                    // Apply multiplier-based scoring
-                    float multiplier = 1.0f;
-                    if (gender == "Female") multiplier += 0.1f;
-                    if (weight > 36) multiplier += 0.1f * (weight - 36);
-                    if (age > 60) multiplier += 0.1f * (age - 60);
-                    
-                    total = (int)(total * multiplier);
-                }
-
-                textComponent.text = $"{currentDate:dd}\n{reps} reps\n{grips} grips\nscore: {total}"; // ✅ Display date + reps + grips + total
+                Debug.Log($"GameCalendar: Day {currentDate:yyyy-MM-dd} - prefsKey='{prefsKey}', gripsKey='{prefsKey}_grips' -> reps={reps}, grips={grips}");
+                textComponent.text = $"{currentDate:dd}\n{reps} reps\n{grips} grips"; // Display date + reps + grips
 
                 // Make the day tile clickable: ensure there's a Button and add listener
                 var btn = day.GetComponent<UnityEngine.UI.Button>();
@@ -201,6 +183,95 @@ public class GameCalendar : MonoBehaviour
         PlayerPrefs.Save();
 
         GenerateCalendar(); // Refresh UI after updating reps
+    }
+
+    public void ResetToday()
+    {
+        string dateKey = DateTime.Now.ToString("yyyy-MM-dd");
+        string prefsKey = dateKey;
+        if (UserManager.Instance != null && UserManager.Instance.HasUser())
+        {
+            prefsKey = dateKey + "_" + UserManager.Instance.CurrentUser;
+        }
+
+        PlayerPrefs.SetInt(prefsKey, 0);
+        PlayerPrefs.SetInt(prefsKey + "_grips", 0);
+        PlayerPrefs.Save();
+
+        Debug.Log($"GameCalendar: Reset today's values for {dateKey}");
+        GenerateCalendar(); // Refresh UI after resetting
+    }
+
+    /// <summary>
+    /// Clears stored reps/grips values for the currently displayed month.
+    /// This affects only the dates visible in the calendar UI (currentMonth).
+    /// </summary>
+    public void ResetCurrentMonthEntries()
+    {
+        int year = currentMonth.Year;
+        int month = currentMonth.Month;
+        int days = DateTime.DaysInMonth(year, month);
+
+        int clearedCount = 0;
+        for (int day = 1; day <= days; day++)
+        {
+            string dateKey = new DateTime(year, month, day).ToString("yyyy-MM-dd");
+            DeleteCalendarKeysForDate(dateKey);
+            clearedCount += 2; // reps + grips
+
+            if (UserManager.Instance != null && UserManager.Instance.HasUser())
+            {
+                string userSuffix = "_" + UserManager.Instance.CurrentUser;
+                DeleteCalendarKeysForDate(dateKey + userSuffix);
+                clearedCount += 2;
+            }
+        }
+
+        PlayerPrefs.Save();
+        Debug.Log($"GameCalendar: Reset current month entries for {currentMonth:MMMM yyyy} (cleared approx {clearedCount} keys)");
+        GenerateCalendar();
+    }
+
+    /// <summary>
+    /// Clears all stored calendar reps/grips values for all dates in a given year range.
+    /// This can be used to fully reset calendar history (including legacy keys).
+    /// </summary>
+    public void ResetAllCalendarEntries()
+    {
+        const int startYear = 2000;
+        const int endYear = 2050;
+
+        int clearedCount = 0;
+        for (int year = startYear; year <= endYear; year++)
+        {
+            for (int month = 1; month <= 12; month++)
+            {
+                int days = DateTime.DaysInMonth(year, month);
+                for (int day = 1; day <= days; day++)
+                {
+                    string dateKey = new DateTime(year, month, day).ToString("yyyy-MM-dd");
+                    DeleteCalendarKeysForDate(dateKey);
+                    clearedCount += 2; // reps + grips
+
+                    if (UserManager.Instance != null && UserManager.Instance.HasUser())
+                    {
+                        string userSuffix = "_" + UserManager.Instance.CurrentUser;
+                        DeleteCalendarKeysForDate(dateKey + userSuffix);
+                        clearedCount += 2;
+                    }
+                }
+            }
+        }
+
+        PlayerPrefs.Save();
+        Debug.Log($"GameCalendar: Reset all calendar entries (cleared approx {clearedCount} keys)");
+        GenerateCalendar();
+    }
+
+    private void DeleteCalendarKeysForDate(string dateKey)
+    {
+        PlayerPrefs.DeleteKey(dateKey);
+        PlayerPrefs.DeleteKey(dateKey + "_grips");
     }
 
     public void NextMonth()

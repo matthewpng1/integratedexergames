@@ -4,6 +4,21 @@ using System;
 
 public class MenuEvents : MonoBehaviour
 {
+    [Header("Debug / Quick Navigation")]
+    [Tooltip("If enabled, pressing Space will load the configured scene index.")]
+    public bool enableSpacebarLoad = false;
+
+    [Tooltip("Scene build index to load when Space is pressed.")]
+    public int spacebarSceneIndex = 0;
+
+    public void Update()
+    {
+        if (enableSpacebarLoad && Input.GetKeyDown(KeyCode.Space))
+        {
+            LoadLevel(spacebarSceneIndex);
+        }
+    }
+
     public void LoadLevel(int index) 
     {    
         SceneManager.LoadScene(index); // Ensure you have the correct scene index

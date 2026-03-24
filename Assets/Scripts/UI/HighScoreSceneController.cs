@@ -15,6 +15,10 @@ public class HighScoreSceneController : MonoBehaviour
     public TMP_Text dateHeader;
     public Transform listContainer;
     public GameObject entryPrefab;
+
+    [Tooltip("Maximum number of high score entries to display (sorted by total score).")]
+    public int maxEntries = 5;
+
     public string backSceneName = "GameScene";
 
     void Start()
@@ -58,7 +62,7 @@ public class HighScoreSceneController : MonoBehaviour
         for (int i = listContainer.childCount - 1; i >= 0; i--)
             Destroy(listContainer.GetChild(i).gameObject);
 
-        var entries = HighScoreManager.Instance.GetTopScoresForDate(date, 10);
+        var entries = HighScoreManager.Instance.GetTopScoresForDate(date, maxEntries);
         if (entries == null || entries.Count == 0)
         {
             // Optionally show a placeholder row

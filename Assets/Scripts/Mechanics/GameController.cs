@@ -32,6 +32,12 @@ namespace Platformer.Mechanics
             {
                 GameSessionStats.Instance.Initialize(model.player, model.player2);
             }
+
+            // Deactivate ProgressTracker in 2-player mode to avoid adding reps
+            if (model != null && model.player2 != null && ProgressTracker.Instance != null)
+            {
+                ProgressTracker.Instance.IsTracking = false;
+            }
         }
 
         void Update()

@@ -850,7 +850,7 @@ GameObject:
   - component: {fileID: 504296257}
   - component: {fileID: 504296256}
   m_Layer: 0
-  m_Name: Rep Grip rules (1)
+  m_Name: bonus rules
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -872,8 +872,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.227, y: 0.009}
-  m_SizeDelta: {x: 677.1543, y: 227.91}
+  m_AnchoredPosition: {x: -0.162, y: 0.271}
+  m_SizeDelta: {x: 625.2351, y: 77.01947}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &504296256
 MonoBehaviour:
@@ -895,7 +895,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Score Multiplier rules
+  m_text: Score Bonus Rules
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88003508be39e449cb51c48494e680cf, type: 2}
   m_sharedMaterial: {fileID: 21699584260080902, guid: 88003508be39e449cb51c48494e680cf, type: 2}
@@ -1803,7 +1803,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 30
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2112,7 +2112,7 @@ GameObject:
   - component: {fileID: 904527928}
   - component: {fileID: 904527927}
   m_Layer: 0
-  m_Name: MultiplierText
+  m_Name: BonusText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2134,7 +2134,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.222, y: -0.107}
+  m_AnchoredPosition: {x: -0.222, y: -0.07}
   m_SizeDelta: {x: 677.1543, y: 227.91}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &904527927
@@ -2157,15 +2157,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Multipliers are awarded based on exercise difficulty.
+  m_text: 'Bonuses are awarded based on difficulty
 
-    Recommended
-    grip resistance for 65 year old male/female: 44.1/27.1kg
+    Recommended grip resistance
+    for male/female: 28.5/18.5kg
 
-    Each kg added adds
-    0.1x multiplier.
-
-    Every year older than 65 adds 0.1x multiplier
+    Recommended ankle weight for 65 year old male/female:
+    1.5/1kg
 
 '
   m_isRightToLeft: 0
@@ -2194,21 +2192,21 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
+  m_paragraphSpacing: 50
   m_charWidthMaxAdj: 0
   m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
@@ -2692,8 +2690,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25.000017, y: -139}
-  m_SizeDelta: {x: 2.6, y: 0.68}
+  m_AnchoredPosition: {x: 25.000017, y: -168.81303}
+  m_SizeDelta: {x: 2.6, y: 0.899}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1079783262
 MonoBehaviour:

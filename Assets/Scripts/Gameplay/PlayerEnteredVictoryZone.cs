@@ -1,6 +1,7 @@
 using Platformer.Core;
 using Platformer.Mechanics;
 using Platformer.Model;
+using UnityEngine;
 
 namespace Platformer.Gameplay
 {
@@ -43,6 +44,14 @@ namespace Platformer.Gameplay
 
             if (shouldEnd && victoryZone != null)
             {
+                // ✅ NEW: Apply bonus when platformer level is completed
+                // Platformer levels primarily use ankle weights (though grippers are involved)
+                if (ProgressTracker.Instance != null)
+                {
+                    Debug.Log($"PlayerEnteredVictoryZone: Level completed - applying ankle bonus...");
+                    ProgressTracker.Instance.LevelComplete(usedGripper: false, usedAnkle: true);
+                }
+                
                 victoryZone.ShowVictoryCanvas();
             }
         }

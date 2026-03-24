@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{3207F689-7895-1B38-3B82-D5B431A92281}</ProjectGuid>
+    <ProjectGuid>{7820B257-3473-80EB-8E96-62595461C084}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor-firstpass</AssemblyName>
@@ -1451,11 +1451,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.2DPlatformer.Tutorials.csproj">
-      <Project>{C6A8CC7A-1293-20B9-A62D-58016B4EC615}</Project>
+      <Project>{05CF9652-F148-F7A8-5C27-D74885CFB703}</Project>
       <Name>Unity.2DPlatformer.Tutorials</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Platformer.Tutorials.csproj">
-      <Project>{863EF281-A363-7338-3EFC-E974A653577E}</Project>
+      <Project>{770FE437-AF72-ECC1-96FF-2F9A07834331}</Project>
       <Name>Unity.Platformer.Tutorials</Name>
     </ProjectReference>
   </ItemGroup>

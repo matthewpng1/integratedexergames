@@ -9,15 +9,19 @@ public class HighScoreEntry
     public string username;
     public int reps;
     public int grips;
-    public int total; // reps+grips+age+weight+genderValue
+    public int repBonus; // Bonus applied to reps (e.g., ankle rounds)
+    public int gripBonus; // Bonus applied to grips (e.g., gripper rounds)
+    public int total; // reps + grips + repBonus + gripBonus
 
     public HighScoreEntry() { }
-    public HighScoreEntry(string user, int r, int g)
+    public HighScoreEntry(string user, int r, int g, int repB = 0, int gripB = 0)
     {
         username = user;
         reps = r;
         grips = g;
-        total = r + g; // additional components added later
+        repBonus = repB;
+        gripBonus = gripB;
+        total = r + g + repB + gripB;
     }
 }
 
@@ -124,7 +128,12 @@ public class HighScoreManager : MonoBehaviour
         string dk = DateKey(date);
         int reps = PlayerPrefs.GetInt(RepsKey(dk, username), 0);
         int grips = PlayerPrefs.GetInt(GripsKey(dk, username), 0);
-        return new HighScoreEntry(username, reps, grips);
+
+        // Split bonus into rep and grip components for clearer display.
+        int repBonus = SinglePlayerScoring.GetTotalAnkleBonusEarned(username);
+        int gripBonus = SinglePlayerScoring.GetTotalGripperBonusEarned(username);
+
+        return new HighScoreEntry(username, reps, grips, repBonus, gripBonus);
     }
 
     public List<HighScoreEntry> GetScoresForDate(DateTime date)
@@ -137,11 +146,14 @@ public class HighScoreManager : MonoBehaviour
         {
             int reps = PlayerPrefs.GetInt(RepsKey(dk, user), 0);
             int grips = PlayerPrefs.GetInt(GripsKey(dk, user), 0);
-            var entry = new HighScoreEntry(user, reps, grips);
-            ApplyProfileBonus(entry);
+
+            int repBonus = SinglePlayerScoring.GetTotalAnkleBonusEarned(user);
+            int gripBonus = SinglePlayerScoring.GetTotalGripperBonusEarned(user);
+
+            var entry = new HighScoreEntry(user, reps, grips, repBonus, gripBonus);
             entries.Add(entry);
         }
-        // Sort by total score (includes profile bonuses) desc, then reps, then grips
+        // Sort by total score desc, then reps, then grips
         entries.Sort((a, b) =>
         {
             int cmp = b.total.CompareTo(a.total);
@@ -166,43 +178,16 @@ public class HighScoreManager : MonoBehaviour
     // Helper: returns the date string used as key
     public string GetDateStringKey(DateTime date) => DateKey(date);
 
-    // Read profile data (age, weight, gender) from PlayerPrefs and calculate total with multiplier
-    // Score multiplier formula:
-    // - Base multiplier = 1.0
-    // - If female: +0.1
-    // - For each kg above 36kg: +0.1
-    // - For each year above 60: +0.1
-    // Final total = (reps + grips) * multiplier
-    private void ApplyProfileBonus(HighScoreEntry entry)
-    {
-        if (entry == null || string.IsNullOrEmpty(entry.username)) return;
-        string user = entry.username;
-        int age = PlayerPrefs.GetInt($"GYG_Profile:{user}:age", 0);
-        float weightF = PlayerPrefs.GetFloat($"GYG_Profile:{user}:weight", 0f);
-        int weight = Mathf.RoundToInt(weightF);
-        string gender = PlayerPrefs.GetString($"GYG_Profile:{user}:gender", "");
-        
-        // Calculate base score
-        int baseScore = entry.reps + entry.grips;
-        
-        // Calculate multiplier
-        float multiplier = 1.0f;
-        if (gender == "Female") multiplier += 0.1f;
-        if (weight > 36) multiplier += 0.1f * (weight - 36);
-        if (age > 60) multiplier += 0.1f * (age - 60);
-        
-        // Apply multiplier
-        entry.total = (int)(baseScore * multiplier);
-        
-        Debug.Log($"HighScoreManager: ApplyProfileBonus for user={user} reps={entry.reps} grips={entry.grips} gender={gender} age={age} weight={weight} baseScore={baseScore} multiplier={multiplier:F2} -> total={entry.total}");
-    }
-
     public void ClearScoresForDate(DateTime date)
     {
         string dk = DateKey(date);
         string listKey = UsersListKey(dk);
-        
-        // Load and clear all user scores for this date
+
+        // Clear legacy (date-only) keys so old values don't persist
+        PlayerPrefs.DeleteKey(dk);
+        PlayerPrefs.DeleteKey(dk + "_grips");
+
+        // Load and clear all per-user scores for this date
         var list = LoadUserList(listKey);
         foreach (var user in list.users)
         {
@@ -214,6 +199,6 @@ public class HighScoreManager : MonoBehaviour
         PlayerPrefs.DeleteKey(listKey);
         PlayerPrefs.Save();
 
-        Debug.Log($"HighScoreManager: Cleared all scores for {dk}");
+        Debug.Log($"HighScoreManager: Cleared all scores for {dk} (including legacy keys)");
     }
 }

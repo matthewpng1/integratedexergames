@@ -6,6 +6,10 @@ using TMPro;
 /// </summary>
 public class VictoryResultsDisplay : MonoBehaviour
 {
+    [Header("Rating Thresholds")]
+    [SerializeField] private int badThreshold = 20; // Score below this is "Bad"
+    [SerializeField] private int excellentThreshold = 40; // Score above this is "Excellent" (between is "Good")
+
     [Header("Player 1 UI")]
     [SerializeField] private TMP_Text player1NameText;
     [SerializeField] private TMP_Text player1JumpsText;
@@ -13,6 +17,8 @@ public class VictoryResultsDisplay : MonoBehaviour
     [SerializeField] private TMP_Text player1CollectiblesText;
     [SerializeField] private TMP_Text player1ScoreText;
     [SerializeField] private TMP_Text player1FinishedText;
+    [SerializeField] private TMP_Text player1RatingText;
+    [SerializeField] private TMP_Text player1BonusText;
 
     [Header("Player 2 UI")]
     [SerializeField] private TMP_Text player2NameText;
@@ -21,6 +27,8 @@ public class VictoryResultsDisplay : MonoBehaviour
     [SerializeField] private TMP_Text player2CollectiblesText;
     [SerializeField] private TMP_Text player2ScoreText;
     [SerializeField] private TMP_Text player2FinishedText;
+    [SerializeField] private TMP_Text player2RatingText;
+    [SerializeField] private TMP_Text player2BonusText;
 
     void OnEnable()
     {
@@ -51,6 +59,10 @@ public class VictoryResultsDisplay : MonoBehaviour
             player1FinishedText.text = $"Finished: {p1Stats.finished}";
         if (player1NameText != null)
             player1NameText.text = p1Stats.controller != null ? "Player 1" : "N/A";
+        if (player1RatingText != null)
+            player1RatingText.text = $"Rating: {GetRating(p1Stats.Score)}";
+        if (player1BonusText != null)
+            player1BonusText.text = $"Bonus: {p1Stats.bonus}";
 
         // Update Player 2
         if (p2Stats.controller != null)
@@ -67,6 +79,10 @@ public class VictoryResultsDisplay : MonoBehaviour
                 player2ScoreText.text = $"Score: {p2Stats.Score}";
             if (player2FinishedText != null)
                 player2FinishedText.text = $"Finished: {p2Stats.finished}";
+            if (player2RatingText != null)
+                player2RatingText.text = $"Rating: {GetRating(p2Stats.Score)}";
+            if (player2BonusText != null)
+                player2BonusText.text = $"Bonus: {p2Stats.bonus}";
         }
         else
         {
@@ -79,8 +95,21 @@ public class VictoryResultsDisplay : MonoBehaviour
                 player2DeathsText.gameObject.SetActive(false);
             if (player2CollectiblesText != null)
                 player2CollectiblesText.gameObject.SetActive(false);
+            if (player2ScoreText != null)
+                player2ScoreText.gameObject.SetActive(false);
             if (player2FinishedText != null)
                 player2FinishedText.gameObject.SetActive(false);
+            if (player2RatingText != null)
+                player2RatingText.gameObject.SetActive(false);
+            if (player2BonusText != null)
+                player2BonusText.gameObject.SetActive(false);
         }
+    }
+
+    private string GetRating(int score)
+    {
+        if (score < badThreshold) return "Ok";
+        if (score >= excellentThreshold) return "Excellent";
+        return "Good";
     }
 }

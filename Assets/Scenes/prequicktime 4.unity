@@ -3627,6 +3627,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8462f0b499e4a45a7a7e84a249b7a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enableSpacebarLoad: 1
+  spacebarSceneIndex: 26
 --- !u!1 &2009382734
 GameObject:
   m_ObjectHideFlags: 0

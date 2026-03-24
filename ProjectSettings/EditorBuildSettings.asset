@@ -105,14 +105,26 @@ EditorBuildSettings:
     path: Assets/Scenes/HighScoreScene.unity
     guid: d6e8475d127d8f9489d10783b97b6fc7
   - enabled: 1
-    path: Assets/Scenes/MenuPlayer.unity
-    guid: 1ee0d6b4a81ca994f99e90fa4270a892
-  - enabled: 1
     path: Assets/Scenes/Manual(Scoring).unity
     guid: 3b2bfe27ed8bf6743a30d05c2c7468cb
   - enabled: 1
-    path: Assets/Scenes/Multiplayer.unity
+    path: Assets/Scenes/MenuPlayer.unity
+    guid: 1ee0d6b4a81ca994f99e90fa4270a892
+  - enabled: 1
+    path: Assets/Scenes/Multiplayer2.unity
     guid: b372ed3fb69654e44848563ea2218dfb
+  - enabled: 1
+    path: Assets/Scenes/Manual(Multiplayer).unity
+    guid: e79d3564ba0ac3f4d990cd848970a023
+  - enabled: 1
+    path: Assets/Scenes/Multiplayer3.unity
+    guid: 61b58e8156b03ec4ab34e468bdb13f68
+  - enabled: 1
+    path: Assets/Scenes/Multiplayer4.unity
+    guid: bb7f82ed84c067842acf475d2039d794
+  - enabled: 1
+    path: Assets/Scenes/MenuMultiPlayer.unity
+    guid: 7a72e06249e573344ac2047c399302fc
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

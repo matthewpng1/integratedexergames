@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
     public void GoToHome()
     {
         Time.timeScale = 1f;  // Reset time scale before loading a scene
-        SceneManager.LoadScene("MenuStart"); // Change "Stage1Countries" to your home scene name
+        SceneManager.LoadScene("Menu"); // Change "Stage1Countries" to your home scene name
     }
 }
 

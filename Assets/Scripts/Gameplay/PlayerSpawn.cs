@@ -35,8 +35,17 @@ namespace Platformer.Gameplay
             // ✅ **Set respawn position to be the player's last safe position**
             // For two-player mode, respawn at the last safe position of the player in first place (larger x position, further ahead)
             Vector3 player1Safe = model.player.GetLastSafePosition();
-            Vector3 player2Safe = model.player2.GetLastSafePosition();
-            Vector3 respawnPosition = (player1Safe.x < player2Safe.x) ? player1Safe : player2Safe;
+            Vector3 respawnPosition;
+            if (model.player2 != null)
+            {
+                Vector3 player2Safe = model.player2.GetLastSafePosition();
+                respawnPosition = (player1Safe.x < player2Safe.x) ? player1Safe : player2Safe;
+            }
+            else
+            {
+                // Single player mode: use player1's safe position
+                respawnPosition = player1Safe;
+            }
 
             // add a small backward buffer so the character doesn't spawn right on the edge
             const float respawnBuffer = 2.0f; // tweak this value to taste
@@ -47,6 +56,9 @@ namespace Platformer.Gameplay
 
             player.jumpState = PlayerController.JumpState.Grounded;
             player.animator.SetBool("dead", false);
+
+            // ✅ **Restore double jump ability on respawn**
+            player.hasDoubleJumpAvailable = true;
 
             // ✅ **Instantly snap this player's camera to their respawn position**
             if (player.vcam != null)

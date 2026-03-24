@@ -10,9 +10,9 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class ProfileSetupController : MonoBehaviour
 {
-    public TMP_InputField ageInput;
-    public TMP_InputField weightInput; // Note: user mentioned "resistance/weight", assuming weight
-    public TMP_Dropdown genderDropdown; // Changed to dropdown for multiple choice
+    public TMP_Dropdown genderDropdown;
+    public TMP_Dropdown gripperDifficultyDropdown; // Gripper difficulty
+    public TMP_Dropdown ankleDifficultyDropdown; // Ankle difficulty
     public Button saveProfileButton;
     public Button logoutButton;
 
@@ -41,18 +41,28 @@ public class ProfileSetupController : MonoBehaviour
 
     void LoadExistingProfile()
     {
-        if (UserProfile.Instance != null)
+        // Set gender dropdown based on existing profile
+        if (genderDropdown != null)
         {
-            ageInput.text = UserProfile.Instance.Age > 0 ? UserProfile.Instance.Age.ToString() : "";
-            weightInput.text = UserProfile.Instance.Weight > 0 ? UserProfile.Instance.Weight.ToString() : "";
-            // Set dropdown based on gender
-            if (genderDropdown != null)
+            int index = 1; // Default to Female
+            if (UserProfile.Instance != null)
             {
-                int index = 1; // Default to Female
                 if (UserProfile.Instance.Gender == "Male") index = 0;
                 else if (UserProfile.Instance.Gender == "Female") index = 1;
-                genderDropdown.value = index;
             }
+            genderDropdown.value = index;
+        }
+
+        // Load difficulty settings from PlayerPrefs
+        string username = UserManager.Instance != null && UserManager.Instance.HasUser() ? UserManager.Instance.CurrentUser : "";
+        if (!string.IsNullOrEmpty(username))
+        {
+            int gripperDifficulty = PlayerPrefs.GetInt($"GYG_Profile:{username}:gripperDifficulty", 0);
+            int ankleDifficulty = PlayerPrefs.GetInt($"GYG_Profile:{username}:ankleDifficulty", 0);
+            if (gripperDifficultyDropdown != null)
+                gripperDifficultyDropdown.value = gripperDifficulty;
+            if (ankleDifficultyDropdown != null)
+                ankleDifficultyDropdown.value = ankleDifficulty;
         }
     }
 
@@ -60,32 +70,38 @@ public class ProfileSetupController : MonoBehaviour
     {
         Debug.Log("OnSaveProfile: Button clicked");
 
-        // Validate inputs
-        if (string.IsNullOrEmpty(ageInput.text) || string.IsNullOrEmpty(weightInput.text))
-        {
-            Debug.LogWarning("ProfileSetup: Age and weight must be filled.");
-            return;
-        }
-
-        int age;
-        float weight;
-        if (!int.TryParse(ageInput.text, out age) || age <= 0)
-        {
-            Debug.LogWarning("ProfileSetup: Age must be a positive integer.");
-            return;
-        }
-        if (!float.TryParse(weightInput.text, out weight) || weight <= 0)
-        {
-            Debug.LogWarning("ProfileSetup: Weight must be a positive number.");
-            return;
-        }
-
-        // Get gender from dropdown (always selected)
+        // Get values from dropdowns (always have defaults)
         string gender = genderDropdown.options[genderDropdown.value].text;
-        Debug.Log($"OnSaveProfile: Saving age={age}, weight={weight}, gender={gender}");
+        int gripperDifficulty = gripperDifficultyDropdown != null ? gripperDifficultyDropdown.value : 0;
+        int ankleDifficulty = ankleDifficultyDropdown != null ? ankleDifficultyDropdown.value : 0;
 
-        // Save profile
-        UserProfile.Instance.SetProfile(age, weight, gender);
+        Debug.Log($"OnSaveProfile: Saving gender={gender}, gripperDifficulty={gripperDifficulty}, ankleDifficulty={ankleDifficulty}");
+
+        // Save profile (age set to 0 as it's no longer used for scoring)
+        UserProfile.Instance.SetProfile(0, 0, gender);
+
+        // Save difficulty settings to PlayerPrefs
+        string username = UserManager.Instance != null && UserManager.Instance.HasUser() ? UserManager.Instance.CurrentUser : "";
+        if (!string.IsNullOrEmpty(username))
+        {
+            PlayerPrefs.SetInt($"GYG_Profile:{username}:gripperDifficulty", gripperDifficulty);
+            PlayerPrefs.SetInt($"GYG_Profile:{username}:ankleDifficulty", ankleDifficulty);
+            
+            // ✅ FIXED: Only initialize round counts if they don't already exist (don't reset on re-save!)
+            if (!PlayerPrefs.HasKey($"GYG_Progress:{username}:gripperRounds"))
+            {
+                PlayerPrefs.SetInt($"GYG_Progress:{username}:gripperRounds", 0);
+                Debug.Log($"ProfileSetupController: Initialized gripperRounds for {username}");
+            }
+            if (!PlayerPrefs.HasKey($"GYG_Progress:{username}:ankleRounds"))
+            {
+                PlayerPrefs.SetInt($"GYG_Progress:{username}:ankleRounds", 0);
+                Debug.Log($"ProfileSetupController: Initialized ankleRounds for {username}");
+            }
+            
+            PlayerPrefs.Save();
+            Debug.Log($"ProfileSetupController: Saved profile for {username}");
+        }
 
         // Load next scene
         if (!string.IsNullOrEmpty(nextSceneName))
@@ -106,6 +122,17 @@ public class ProfileSetupController : MonoBehaviour
         if (UserProfile.Instance != null)
             UserProfile.Instance.ClearProfile();
 
+        // Clear difficulty and progress settings from PlayerPrefs
+        string username = UserManager.Instance != null && UserManager.Instance.HasUser() ? UserManager.Instance.CurrentUser : "";
+        if (!string.IsNullOrEmpty(username))
+        {
+            PlayerPrefs.DeleteKey($"GYG_Profile:{username}:gripperDifficulty");
+            PlayerPrefs.DeleteKey($"GYG_Profile:{username}:ankleDifficulty");
+            PlayerPrefs.DeleteKey($"GYG_Progress:{username}:gripperRounds");
+            PlayerPrefs.DeleteKey($"GYG_Progress:{username}:ankleRounds");
+            PlayerPrefs.Save();
+        }
+
         // Load start menu
         if (!string.IsNullOrEmpty(startMenuSceneName))
         {
@@ -115,10 +142,5 @@ public class ProfileSetupController : MonoBehaviour
         {
             Debug.LogError("ProfileSetup: startMenuSceneName not set.");
         }
-    }
-
-    public void TestSaveButton()
-    {
-        Debug.Log("TestSaveButton: Called from OnClick");
     }
 }

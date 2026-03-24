@@ -207,6 +207,11 @@ public class InputHandler : MonoBehaviour
                 ProgressTracker.Instance.SaveNow();
                 reps = ProgressTracker.Instance.GetRepsToday();
                 grips = ProgressTracker.Instance.GetGripsToday();
+
+                // ✅ NEW: Apply bonus when mini-game level is completed
+                // This mini-game uses grippers (spacebar presses = grips)
+                Debug.Log($"InputHandler: Mini-game completed - applying gripper bonus...");
+                ProgressTracker.Instance.LevelComplete(usedGripper: true, usedAnkle: false);
             }
 
             if (HighScoreManager.Instance == null)
