@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: Bgood
   productName: Integrated Exergames
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -672,6 +672,7 @@ PlayerSettings:
   webWasm2023: 0
   scriptingDefineSymbols:
     Standalone: UNITY_TEMPLATE_PLATFORMER
+    WebGL: UNITY_TEMPLATE_PLATFORMER
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

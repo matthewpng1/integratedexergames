@@ -622,7 +622,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 24
+          m_IntArgument: 18
           m_FloatArgument: 0
           m_StringArgument: Stage 1 - Singapore
           m_BoolArgument: 0
@@ -3628,7 +3628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableSpacebarLoad: 1
-  spacebarSceneIndex: 24
+  spacebarSceneIndex: 18
 --- !u!1 &2009382734
 GameObject:
   m_ObjectHideFlags: 0

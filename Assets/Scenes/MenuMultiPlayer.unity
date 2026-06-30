@@ -13802,7 +13802,7 @@ MonoBehaviour:
   saveProfileButton: {fileID: 1725049103}
   homeButton: {fileID: 1433173985}
   nextSceneName: Manual(Multiplayer)
-  startMenuSceneName: MenuStart
+  startMenuSceneName: AStart
 --- !u!1 &1818862906
 GameObject:
   m_ObjectHideFlags: 0
