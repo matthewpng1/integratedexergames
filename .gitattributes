@@ -1,3 +1,14 @@
+# Mark image files as binary - prevent line-ending corruption
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.avif binary
+*.gif binary
+*.bmp binary
+*.tga binary
+*.psd binary
+*.meta binary
 *.png filter=lfs diff=lfs merge=lfs -text
 *.mp4 filter=lfs diff=lfs merge=lfs -text
 *.dll filter=lfs diff=lfs merge=lfs -text
